@@ -1,16 +1,22 @@
+import os
+import subprocess
 import streamlit as st
 import pickle
 import numpy as np
-import sklearn  # <-- Add this
 
-
+# Ensure scikit-learn is installed
+try:
+    import sklearn
+except ModuleNotFoundError:
+    subprocess.check_call(["pip", "install", "scikit-learn"])
+    import sklearn
 
 # Load trained model
 with open("random_forest_model.pkl", "rb") as file:
     model = pickle.load(file)
 
-# Streamlit UI
 st.title("📊 Student Score Prediction")
+
 st.write("Enter values to predict the total score.")
 
 # Ensure 14 input fields match the model
