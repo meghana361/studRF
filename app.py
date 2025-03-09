@@ -1,6 +1,9 @@
 import streamlit as st
 import pickle
 import numpy as np
+import sklearn  # <-- Add this
+
+
 
 # Load trained model
 with open("random_forest_model.pkl", "rb") as file:
